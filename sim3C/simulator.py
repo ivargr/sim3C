@@ -161,7 +161,8 @@ class ReadGenerator:
         length.
         :return: length, midpoint and direction tuple. Eg. (100, 56, True)
         """
-        length = int(self.normal(self.insert_mean, self.insert_sd))
+        length = np.random.geometric(1.0 / self.insert_mean)
+        #length = int(self.normal(self.insert_mean, self.insert_sd))
         if length < self.insert_min:
             self.too_short += 1
             length = self.insert_min
